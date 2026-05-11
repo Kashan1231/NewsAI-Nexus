@@ -1,0 +1,32 @@
+import { createServerClient } from '@supabase/ssr'
+import { NextResponse, type NextRequest } from 'next/server'
+
+export async function proxy(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({
+    request,
+  })
+
+  // ... (Supabase client setup wala code rehne dein agar zaroorat hai)
+
+  // COMMENT OUT OR REMOVE THIS PART:
+  /*
+  const { data: { user } } = await supabase.auth.getUser()
+
+  const protectedRoutes = ['/saved']
+  const isProtected = protectedRoutes.some(route =>
+    request.nextUrl.pathname.startsWith(route)
+  )
+
+  if (isProtected && !user) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  }
+  */
+
+  return supabaseResponse
+}
+
+export const config = {
+  // Isse bhi khali kar dein ya comment kar dein
+  // matcher: ['/saved/:path*']
+  matcher: [] 
+}

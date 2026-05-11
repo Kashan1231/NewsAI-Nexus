@@ -1,0 +1,12 @@
+# Master Ignore for Monorepo
+node_modules/
+.env
+.env.local
+.env.*
+.DS_Store
+Thumbs.db
+.next/
+dist/
+build/
+.vercel
+*.log
